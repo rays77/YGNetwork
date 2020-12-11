@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'YGNetwork_Example' do
+  pod 'YGNetwork', :path => '../'
+
+  target 'YGNetwork_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

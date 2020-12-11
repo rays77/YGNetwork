@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'YGNetwork'
-  s.version          = '0.0.0.1'
+  s.version          = '1.0.0.0'
   s.summary          = 'YGNetwork 是基于 AFNetworking 封装的网络请求库，便于项目中的使用'
   s.homepage         = 'https://github.com/rays77/YGNetwork'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }

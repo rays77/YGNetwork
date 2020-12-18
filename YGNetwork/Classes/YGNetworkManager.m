@@ -228,7 +228,18 @@ typedef void(^YGNetworkDataTaskSuccess)(NSURLSessionDataTask * _Nonnull task);
 - (NSURLSessionDataTask *)yg_method:(YGNetworkRequestMethod)method url:(NSString *)url parameters:(id)parameters router:(id)router header:(NSDictionary<NSString *,NSString *> *)header success:(YGNetworkSuccess)success failure:(YGNetworkFailure)failure {
   
     NSString *preuUrl = [YGNetworkTool getIntegralUrlWithRouter:router url:url];
-    NSString *integralUrl = [YGNetworkTool getIntegralUrl:preuUrl baseUrl:self.baseURL];
+    
+    NSURL *tempBaseURL = nil;
+    
+    if (self.ygDelegate && [self.ygDelegate respondsToSelector:@selector(yg_networkManagerBaseURL)]) {
+        tempBaseURL = [self.ygDelegate yg_networkManagerBaseURL];
+    }
+    
+    if (tempBaseURL == nil) {
+        tempBaseURL = self.baseURL;
+    }
+    
+    NSString *integralUrl = [YGNetworkTool getIntegralUrl:preuUrl baseUrl:tempBaseURL];
   
     NSDictionary *currHeader = [self requestBeforUrl:integralUrl headers:header];
     id currParams = [self requestBeforUrl:integralUrl parameters:parameters];
@@ -253,7 +264,17 @@ typedef void(^YGNetworkDataTaskSuccess)(NSURLSessionDataTask * _Nonnull task);
                             success:(nonnull YGNetworkSuccess)success
                             failure:(nonnull YGNetworkFailure)failure {
     
-    NSString *integralUrl = [YGNetworkTool getIntegralUrl:url baseUrl:self.baseURL];
+    NSURL *tempBaseURL = nil;
+    
+    if (self.ygDelegate && [self.ygDelegate respondsToSelector:@selector(yg_networkManagerBaseURL)]) {
+        tempBaseURL = [self.ygDelegate yg_networkManagerBaseURL];
+    }
+    
+    if (tempBaseURL == nil) {
+        tempBaseURL = self.baseURL;
+    }
+    
+    NSString *integralUrl = [YGNetworkTool getIntegralUrl:url baseUrl:tempBaseURL];
     
     NSDictionary *currHeader = [self requestBeforUrl:integralUrl headers:header];
     id currParams = [self requestBeforUrl:integralUrl parameters:parameters];

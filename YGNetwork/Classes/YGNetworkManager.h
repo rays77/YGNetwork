@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol YGNetworkManagerDelegate <NSObject>
 @optional
+/// 用来灵活控制 base url，传 nil 时将使用 initWithBaseURL 传入的 url
+- (nullable NSURL *)yg_networkManagerBaseURL;
+
 /// 网络请求成功
 /// @param networkModel 响应model
 /// @return 返回YES时会触发外部的请求成功的回调，返回NO不触发

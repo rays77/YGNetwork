@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
-  - YGNetwork (1.0.0.0):
+  - YGNetwork (1.0.0.1):
     - AFNetworking (= 4.0.1)
 
 DEPENDENCIES:
@@ -30,7 +30,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
-  YGNetwork: 5525c32e4322ed1e4ecb8e1dc020b7f999e1c031
+  YGNetwork: 802fe5ccd45b9560741ae2cbad870fdc65c82764
 
 PODFILE CHECKSUM: 4192d52a8ea1002a93f53c6e7c660947dced6703
 
